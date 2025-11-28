@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vishvjeet Singh – Author</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f3ee;
+      color: #222;
+      line-height: 1.7;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    header {
+      background: linear-gradient(135deg, #111, #333);
+      color: #fff;
+      padding: 1.6rem 1.5rem 1.3rem;
+    }
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .logo span:first-child {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .logo span:last-child {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.4rem 0.9rem;
+      background: transparent;
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .theme-toggle span {
+      font-size: 0.9rem;
+    }
+    .hero-text {
+      max-width: 1000px;
+      margin: 0.8rem auto 0;
+      text-align: left;
+      padding: 0 1.2rem 0.8rem;
+    }
+    .hero-text h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+    .hero-text p {
+      margin-top: 0.6rem;
+      font-size: 1.02rem;
+      opacity: 0.9;
+    }
+    .hero-sub {
+      margin-top: 0.4rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.2rem 3rem;
+    }
+    section {
+      margin: 2.8rem auto 0;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.8rem;
+      border-left: 6px solid #000;
+      padding-left: 10px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: start;
+    }
+    .author-photo {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      background: #d3c7b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .author-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .author-photo-fallback {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+    .book-card {
+      background: #fff;
+      padding: 1.4rem 1.3rem 1.6rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .book-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #111;
+      color: #fff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.9rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #111;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #111;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn.primary {
+      background: #111;
+      color: #fff;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+    }
+    .poem-card {
+      background: #fff;
+      padding: 1.2rem 1.3rem 1.3rem;
+      border-radius: 14px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+      margin-bottom: 1.3rem;
+      font-size: 0.97rem;
+      white-space: pre-line;
+    }
+    .events-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .events-list li {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px dashed rgba(0,0,0,0.12);
+    }
+    .events-list span {
+      display: block;
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+    .contact-links p {
+      margin: 0.2rem 0;
+    }
+    .footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Dark mode */
+    body.dark-mode {
+      background: #050607;
+      color: #f2f2f2;
+    }
+    body.dark-mode h2 {
+      border-left-color: #f2f2f2;
+    }
+    body.dark-mode .book-card,
+    body.dark-mode .poem-card {
+      background: #111317;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.6);
+    }
+    body.dark-mode .btn {
+      border-color: #f2f2f2;
+      color: #f2f2f2;
+    }
+    body.dark-mode .btn.primary {
+      background: #f2f2f2;
+      color: #050607;
+    }
+    body.dark-mode a {
+      color: #7fb7ff;
+    }
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-text h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span>Vishvjeet Singh</span>
+        <span>Poet • Author</span>
+      </div>
+      <button class="theme-toggle" type="button" id="themeToggle">
+        <span>☾</span>
+        <span>Dark / Light</span>
+      </button>
+    </div>
+    <div class="hero-text">
+      <h1>Poetry, Philosophy & Inner Journeys</h1>
+      <p>
+        Author of <strong>"Aangan Man"</strong> and <strong>"Darshan Pathik"</strong> — काव्य जहाँ मन का आंगन, समय और चेतना एक साथ संवाद करते हैं।
+      </p>
+      <p class="hero-sub">कविता मेरे लिए अभिव्यक्ति नहीं, आत्म-दर्शन की साधना है।</p>
+    </div>
+  </header>
+
+  <section class="wrapper">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div>
+        <p>
+          मैं विश्वजीत सिंह, समकालीन हिंदी कवि और दार्शनिक सोच वाला लेखक। मेरी रचनाओं की जड़ें उन सवालों में हैं जो मन, समय और चेतना को छूते हैं — मैं कविता को राहत नहीं, बल्कि <strong>सच से साक्षात्कार</strong> मानता हूँ।
+        </p>
+        <p>
+          29 वर्ष की आयु में जब पहली बार भीतर का शब्द बाहर आया, तब से काव्य मेरे लिए जीवन-दर्शन की भाषा बन गया। <strong>"Aangan Man"</strong> मेरे अनुभवों, स्मृतियों और मन के आँगन में बिखरे उजालों-अँधेरों का पहला संकलन है, जबकि <strong>"Darshan Pathik"</strong> उस पथिक की यात्रा है जो भीतर के "तत्व सत्य" की खोज में भटकने को भी साधना मानता है।
+        </p>
+        <p>
+          मेरी लेखनी का केंद्र है — <em>"मैं कौन हूँ?"</em> यह प्रश्न। कभी भीड़ के बीच खड़ा होकर, कभी एकांत की खामोशी में बैठकर, मैं उसी प्रश्न को अलग-अलग काव्य रूपों में टटोलता रहता हूँ।
+        </p>
+      </div>
+      <div>
+        <div class="author-photo">
+          <!-- यहाँ अपनी असली प्रोफ़ाइल फोटो की फ़ाइल का नाम लगाएँ (जैसे profile.jpg) -->
+          <img src="profile.jpg" alt="Portrait of author Vishvjeet Singh" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="author-photo-fallback" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            Author Photo
+            <br />
+            <small>(यहाँ अपनी प्रोफ़ाइल फोटो लगा सकते हैं)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper">
+    <h2>Books</h2>
+    <div class="books-grid">
+      <div class="book-card">
+        <div class="tag">Debut Poetry Collection</div>
+        <h3>Aangan Man (2025)</h3>
+        <p>
+          38 काव्यों का एक आध्यात्मिक, दार्शनिक और मनोभावनात्मक संग्रह। इस पुस्तक में स्मृतियों, प्रश्नों और भीतरी संवादों के बीच बदलती ऋतुओं जैसा मन दिखाई देता है। यह उन पाठकों के लिए है जो कविता के माध्यम से स्वयं का आंतरिक चेहरा पढ़ना चाहते हैं।
+        </p>
+        <p>
+          <a class="btn primary" href="AMAZON_AANGAN_MAN_LINK" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+        </p>
+        <!-- ऊपर वाले href में AMAZON_AANGAN_MAN_LINK की जगह अपना असली Amazon लिंक लगाएँ -->
+      </div>
+
+      <div class="book-card">
+        <div class="tag">Upcoming</div>
+        <h3>Darshan Pathik</h3>
+        <p>
+          112 पृष्ठों की एक दार्शनिक काव्य यात्रा, जिसमें संक्षिप्त, गूढ़ और चेतनात्मक रचनाएँ संकलित हैं। यह संग्रह "तत्व सत्य", "आत्म-दर्शन" और "समय" जैसी धुरियों पर घूमता है और पाठक को भीतर की तीर्थयात्रा पर आमंत्रित करता है।
+        </p>
+        <p>
+          <a class="btn" href="#">Details Coming Soon</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper">
+    <h2>Poetry Glimpses</h2>
+    <div class="poem-card">
+      आंगन मन की खामोशी में
+      एक पुराना सवाल बैठा है —
+      
+      मैं कौन हूँ?
+      शब्द, श्वास या सिर्फ
+      किसी और का अधूरा सपना।
+    </div>
+    <div class="poem-card">
+      समय के दो राहों पर
+      खड़ा हूँ निर्वस्त्र चेतना की तरह —
+      
+      एक राह भीड़ की ओर जाती है,
+      दूसरी… अपने ही भीतर।
+    </div>
+  </section>
+
+  <section class="wrapper">
+    <h2>Events & Readings</h2>
+    <ul class="events-list">
+      <li>
+        <span>Recent</span>
+        कविता पाठ — स्थानीय कवि सम्मेलन एवं सांस्कृतिक मंचों पर "Aangan Man" से चयनित रचनाएँ।
+      </li>
+      <li>
+        <span>Upcoming</span>
+        "Darshan Pathik" से काव्य पाठ और पुस्तक-विमोचन (तिथि एवं स्थल शीघ्र घोषित किए जाएँगे)।
+      </li>
+    </ul>
+  </section>
+
+  <section class="wrapper">
+    <h2>Contact</h2>
+    <div class="contact-links">
+      <p>Email: <a href="mailto:vksingh543256@gmail.com">vksingh543256@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/vishvjeet_writes" target="_blank">@vishvjeet_writes</a></p>
+      <p>Location: Chandigarh / Mohali, India</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2025 Vishvjeet Singh — All Rights Reserved
+  </div>
+  <script>
+    (function() {
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const stored = window.localStorage.getItem('v_theme');
+      if (stored === 'dark') {
+        body.classList.add('dark-mode');
+        if (toggle) toggle.firstElementChild.textContent = '☼';
+      }
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          const isDark = body.classList.toggle('dark-mode');
+          window.localStorage.setItem('v_theme', isDark ? 'dark' : 'light');
+          toggle.firstElementChild.textContent = isDark ? '☼' : '☾';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
